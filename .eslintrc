@@ -8,14 +8,6 @@
       2,
       "single"
     ],
-    "indent": [
-      2,
-      2
-    ],
-    "one-var": [
-      2,
-      "never"
-    ],
     "consistent-return": 0,
     "no-use-before-define": [
       2,
@@ -65,7 +57,6 @@
         "afterColon": true
       }
     ],
-    "space-infix-ops": 2,
     "no-eval": 2,
     "no-with": 2,
     "eol-last": 2,

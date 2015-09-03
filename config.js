@@ -1,6 +1,8 @@
+'use strict';
+
 module.exports = {
-	'endPointBase': 'http://www.imagecloud.io/',
-	'endPoints': {
-		"upload": '/upload'
+	endPointBase: 'http://www.imagecloud.io/',
+	endPoints: {
+		upload: '/upload'
 	}
 };

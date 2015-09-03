@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "A node client to easily upload to and retrieve from img-cloud server",
   "homepage": "http://www.imgcloud.io/",
-  "repository": "img-cloud/img-cloud",
+  "repository": "img-cloud/node_module",
   "author": {
     "name": "Chetan Honnenahalli",
     "email": "chetanhs247@gmail.com"
