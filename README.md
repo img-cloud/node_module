@@ -22,9 +22,9 @@ imgCloud('Rainbow');
 MIT © [Liftoff LLC]
 
 
-[npm-image]: https://badge.fury.io/js/img-cloud.svg
-[npm-url]: https://npmjs.org/package/img-cloud
-[travis-image]: https://travis-ci.org/img-cloud/img-cloud.svg?branch=master
-[travis-url]: https://travis-ci.org/img-cloud/img-cloud
-[daviddm-image]: https://david-dm.org/img-cloud/img-cloud.svg?theme=shields.io
-[daviddm-url]: https://david-dm.org/img-cloud/img-cloud
+#[npm-image]: https://badge.fury.io/js/img-cloud.svg
+#[npm-url]: https://npmjs.org/package/img-cloud
+#[travis-image]: https://travis-ci.org/img-cloud/img-cloud.svg?branch=master
+#[travis-url]: https://travis-ci.org/img-cloud/img-cloud
+#[daviddm-image]: https://david-dm.org/img-cloud/img-cloud.svg?theme=shields.io
+#[daviddm-url]: https://david-dm.org/img-cloud/img-cloud
