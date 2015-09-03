@@ -9,19 +9,19 @@ var TEST_API_KEY = config.testApiKey;
 
 describe('img-cloud', function () {
   
-  describe('configure', function(){
+  describe('configure', function (){
     it('should fail if no options are provided', function(){
       try {
-        imgCloud.configure()
-      } catch(e){
+        imgCloud.configure();
+      } catch (e){
         assert(e.toString(), 'Missing configuration options');
       }
     });
     
     it('should fail if api key is provided', function(){
       try {
-        imgCloud.configure({})
-      } catch(e){
+        imgCloud.configure({});
+      } catch (e){
         assert(e.toString(), 'Missing API Key');
       }
     });
@@ -101,7 +101,11 @@ describe('img-cloud', function () {
     it('should return the URL for the transformed image', function(){
       var imageTag = imgCloud.transform('icp_ca3a83/1441279211081_test.jpg', {
         width: 150, 
-        height: 150
+        height: 150,
+        class: 'test-class',
+        alt: 'test image',
+        title: 'test-title',
+        style: 'width: 150px'
       });
       var expectedTag = '<img src="' + config.endPointBase + 'icp_ca3a83/w_150,h_150/1441279211081_test.jpg" \
          width="150" \
@@ -110,6 +114,12 @@ describe('img-cloud', function () {
          alt="test image" \
          title="test-title" \
          style="width: 150px">';
+      assert(imageTag, expectedTag);
+    });
+    
+    it('should return the origninal URL if no transformation options are provided', function(){
+      var imageTag = imgCloud.transform('icp_ca3a83/1441279211081_test.jpg');
+      var expectedTag = '<img src="' + config.endPointBase + 'icp_ca3a83/1441279211081_test.jpg">';
       assert(imageTag, expectedTag);
     });
   });
