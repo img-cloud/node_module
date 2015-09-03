@@ -1,0 +1,37 @@
+{
+  "name": "img-cloud",
+  "version": "0.0.0",
+  "description": "A node client to easily upload to and retrieve from img-cloud server",
+  "homepage": "http://www.imgcloud.io/",
+  "repository": "img-cloud/img-cloud",
+  "author": {
+    "name": "Chetan Honnenahalli",
+    "email": "chetanhs247@gmail.com"
+  },
+  "files": [
+    "lib"
+  ],
+  "main": "lib/index.js",
+  "keywords": [
+    "img cloud",
+    "image cloud",
+    "img-cloud"
+  ],
+  "dependencies": {
+    "restler": "3.3.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.6.0",
+    "gulp-eslint": "^0.15.0",
+    "gulp-exclude-gitignore": "^1.0.0",
+    "gulp-istanbul": "^0.9.0",
+    "gulp-mocha": "^2.0.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-nsp": "^0.4.5"
+  },
+  "scripts": {
+    "prepublish": "gulp prepublish",
+    "test": "gulp"
+  },
+  "license": "MIT"
+}
