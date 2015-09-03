@@ -41,7 +41,7 @@ imgCloud.upload(_dirName + '/uploads/my_img.jpg', {
  */
 ```
 
-# Getting an embeddable image image tag
+# Getting an embeddable image tag
 ```js
 var imgCloud = require('img-cloud');
 
