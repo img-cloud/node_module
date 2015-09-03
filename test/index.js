@@ -31,7 +31,7 @@ describe('img-cloud', function () {
     it('should upload image to img-cloud server', function () {
       var options = {
         folder: 'nodeModuleTest',
-        tags: ['test', 'node']
+        tags: 'test, node'
       };
       
       imgCloud.configure({
@@ -41,6 +41,7 @@ describe('img-cloud', function () {
       imgCloud.upload('test/fixtures/test.jpg', options, function (error, data){
         var regEx = new RegExp(config.baseUrl + '/ic_.{6}/[0-9]*_test.jpg');
         assert(error, null);
+        assert(data.url !== null, true);
         assert(data.url.match(regEx) !== null, true);
         assert(data.folder, 'nodeModuleTest');
         assert(data.tags, ['test', 'node']);
@@ -65,10 +66,51 @@ describe('img-cloud', function () {
       });
     });
     
-    it('should fail if "tags" is not an array', function () {
-      imgCloud.upload('test/fixtures/test.jpg', {tags: 'test, node'}, function (error, data){
-        assert(error, 'Invalid format for "tags"');
+    it('should fail if "tags" is not a string', function () {
+      imgCloud.upload('test/fixtures/test.jpg', {tags: ['test', 'node']}, function (error, data){
+        assert(error, 'Invalid format for "tags". A CSV of strings is expected.');
       });
+    });
+  });
+  
+  describe('transform', function(){
+    it('should fail if path is not provided', function(){
+      try {
+        imgCloud.transform('', {});  
+      } catch (e){
+        assert(e.toString(), '"path" is required');
+      }
+    });
+    
+    it('should fail if height is not a number', function(){
+      try {
+        imgCloud.transform('/path/to/file', {height: 'abc'});  
+      } catch (e){
+        assert(e.toString(), 'Invalid type for height. Must be a number');
+      }
+    });
+    
+    it('should fail if width is not a number', function(){
+      try {
+        imgCloud.transform('/path/to/file', {width: 'abc'});  
+      } catch (e){
+        assert(e.toString(), 'Invalid type for width. Must be a number');
+      }
+    });
+    
+    it('should return the URL for the transformed image', function(){
+      var imageTag = imgCloud.transform('icp_ca3a83/1441279211081_test.jpg', {
+        width: 150, 
+        height: 150
+      });
+      var expectedTag = '<img src="' + config.endPointBase + 'icp_ca3a83/w_150,h_150/1441279211081_test.jpg" \
+         width="150" \
+         height="150" \
+         class="test-class" \
+         alt="test image" \
+         title="test-title" \
+         style="width: 150px">';
+      assert(imageTag, expectedTag);
     });
   });
   
