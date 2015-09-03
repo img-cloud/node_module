@@ -109,7 +109,7 @@
     "no-lone-blocks": 2,
     "no-loop-func": 2,
     "no-multi-spaces": 2,
-    "no-multi-str": 2,
+    "no-multi-str": 0,
     "no-native-reassign": 2,
     "no-new-func": 2,
     "no-new-wrappers": 2,
@@ -147,7 +147,7 @@
     ],
     "no-new-object": 2,
     "no-spaced-func": 2,
-    "no-trailing-spaces": 2,
+    "no-trailing-spaces": 0,
     "no-underscore-dangle": 2,
     "no-wrap-func": 2,
     "semi-spacing": [
