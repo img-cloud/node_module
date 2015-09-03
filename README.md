@@ -19,7 +19,7 @@ imgCloud('Rainbow');
 
 ## License
 
-MIT © [Chetan Honnenahalli]()
+MIT © [Liftoff LLC]
 
 
 [npm-image]: https://badge.fury.io/js/img-cloud.svg
