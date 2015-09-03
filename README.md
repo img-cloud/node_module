@@ -1,4 +1,4 @@
-# img-cloud [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url]
+# img-cloud [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Coverage Status][coveralls-image]][coveralls-url]
 > A node client to easily upload to and retrieve from img-cloud server
 
 
@@ -67,3 +67,5 @@ MIT © [Liftoff LLC]
 [npm-url]: https://npmjs.org/package/img-cloud
 [travis-image]: https://travis-ci.org/img-cloud/node_module.svg
 [travis-url]: https://travis-ci.org/img-cloud/node_module
+[coveralls-image]: https://coveralls.io/repos/img-cloud/node_module/badge.svg?branch=master&service=github
+[coveralls-url]: https://coveralls.io/github/img-cloud/node_module?branch=master
