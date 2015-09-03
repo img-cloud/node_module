@@ -11,10 +11,51 @@ $ npm install --save img-cloud
 
 ## Usage
 
+# Configuring your client
 ```js
 var imgCloud = require('img-cloud');
 
-imgCloud('Rainbow');
+imgCloud.configure({apiKey: <YOUR_API_KEY>});
+
+// Vist http://www.imgcloud.io to find out how to get your API key 
+```
+
+# Uploading an image
+```js
+var imgCloud = require('img-cloud');
+
+imgCloud.configure({apiKey: <YOUR_API_KEY>});
+
+imgCloud.upload(_dirName + '/uploads/my_img.jpg', {
+	folder: 'profile',
+	tags: 'user, profile'
+});
+
+/**
+ * The response looks like
+ * {
+ *   "url": "http://www.imgcloud.io/ic_12345/1234567_my_img.jpg",
+ *   "folder": "profile",
+ *   "tags": ["user", "profile"]
+ * } 
+ */
+```
+
+# Getting an embeddable image image tag
+```js
+var imgCloud = require('img-cloud');
+
+imgCloud.configure({apiKey: <YOUR_API_KEY>});
+
+imgCloud.transform('ic_12345/1234567_my_img.jpg', {
+	height: 150,
+	width: 150
+});
+
+/**
+ * This returns a string for a DOM element
+ * <img src="http://www.imgcloud.io/ic_12345/w_150,h_150/1234567_my_img.jpg" width="150" height="150">
+ * /
 ```
 
 ## License
