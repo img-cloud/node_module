@@ -16,7 +16,7 @@ describe('img-cloud', function () {
       }
     });
 
-    it('should fail if api key is provided', function (){
+    it('should fail if api key is not provided', function (){
       try {
         imgCloud.configure({});
       } catch (e){
@@ -26,26 +26,6 @@ describe('img-cloud', function () {
   });
   
   describe('upload', function (){
-    it('should upload image to img-cloud server', function () {
-      var options = {
-        folder: 'nodeModuleTest',
-        tags: 'test, node'
-      };
-      
-      imgCloud.configure({
-        apiKey: config.testApiKey
-      });
-      
-      imgCloud.upload('test/fixtures/test.jpg', options, function (error, data){
-        var regEx = new RegExp(config.baseUrl + '/ic_.{6}/[0-9]*_test.jpg');
-        assert(error, null);
-        assert(data.url !== null, true);
-        assert(data.url.match(regEx) !== null, true);
-        assert(data.folder, 'nodeModuleTest');
-        assert(data.tags, ['test', 'node']);
-      });
-    });
-    
     it('should fail if input file path not specified', function () {
       imgCloud.upload('', {}, function (error){
         assert(error, '"path" is required');
@@ -65,8 +45,39 @@ describe('img-cloud', function () {
     });
     
     it('should fail if "tags" is not a string', function () {
+      imgCloud.configure({
+        apiKey: config.testApiKey
+      });
       imgCloud.upload('test/fixtures/test.jpg', {tags: ['test', 'node']}, function (error){
         assert(error, 'Invalid format for "tags". A CSV of strings is expected.');
+      });
+    });
+    
+    
+    it('should fail if post request fails', function () {
+      imgCloud.configure({
+        apiKey: config.testApiKey
+      });
+      imgCloud.upload('invalid/path/test.jpg', {}, function (error){
+        assert(error.code, 'ENOENT');
+      });
+    });
+    
+    it('should upload image to img-cloud server', function () {
+      var options = {
+        folder: 'nodeModuleTest',
+        tags: 'test, node'
+      };
+      
+      imgCloud.configure({
+        apiKey: config.testApiKey
+      });
+      
+      imgCloud.upload('test/fixtures/test.jpg', options, function (error, data){
+        var regEx = new RegExp(config.baseUrl + '/ic_.{6}/[0-9]*_test.jpg');
+        assert(data.url.match(regEx) !== null, true);
+        assert(data.folder, 'nodeModuleTest');
+        assert(data.tags, ['test', 'node']);
       });
     });
   });
