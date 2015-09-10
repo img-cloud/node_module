@@ -48,21 +48,21 @@ var imgCloud = require('img-cloud');
 imgCloud.configure({apiKey: <YOUR_API_KEY>});
 
 imgCloud.transform('ic_12345/1234567_my_img.jpg', {
-	width: 150, 
-        height: 150,
-        class: 'avatar',
-        alt: 'My Image',
-        title: 'My Image Title',
-        style: 'width: 150px',
-        crop: true,
-        x: 150,
-        y: 150,
-        scale: true,
-        borderColor: 'blue',
-        borderWidth: 1,
-        blur: 20,
-        sepia: true,
-        format: 'png'
+  width: 150,
+  height: 150,
+  class: 'avatar',
+  alt: 'My Image',
+  title: 'My Image Title',
+  style: 'width: 150px',
+  crop: true,
+  x: 150,
+  y: 150,
+  scale: true,
+  borderColor: 'blue',
+  borderWidth: 1,
+  blur: 20,
+  sepia: true,
+  format: 'png'
 });
 
 /**
