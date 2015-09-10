@@ -91,19 +91,51 @@ describe('img-cloud', function () {
       }
     });
     
-    it('should fail if height is not a number', function (){
+    it('should fail if height is null', function (){
       try {
-        imgCloud.transform('/path/to/file', {height: 'abc'});  
+        imgCloud.transform('/path/to/file', {height: null});  
       } catch (e){
         assert(e.toString(), 'Invalid type for height. Must be a number');
       }
     });
     
-    it('should fail if width is not a number', function (){
+    it('should fail if width is null', function (){
       try {
-        imgCloud.transform('/path/to/file', {width: 'abc'});  
+        imgCloud.transform('/path/to/file', {width: null});  
       } catch (e){
-        assert(e.toString(), 'Invalid type for width. Must be a number');
+        assert(e.toString(), 'Invalid type for widt. Must be a number');
+      }
+    });
+    
+    it('should fail if x is null', function (){
+      try {
+        imgCloud.transform('/path/to/file', {x: null});  
+      } catch (e){
+        assert(e.toString(), 'Invalid type for x. Must be a number');
+      }
+    });
+    
+    it('should fail if y is null', function (){
+      try {
+        imgCloud.transform('/path/to/file', {y: null});  
+      } catch (e){
+        assert(e.toString(), 'Invalid type for y. Must be a number');
+      }
+    });
+    
+    it('should fail if borderWidth is null', function (){
+      try {
+        imgCloud.transform('/path/to/file', {borderWidth: null});  
+      } catch (e){
+        assert(e.toString(), 'Invalid type for borderWidth. Must be a number');
+      }
+    });
+    
+    it('should fail if blur is null', function (){
+      try {
+        imgCloud.transform('/path/to/file', {blur: null});  
+      } catch (e){
+        assert(e.toString(), 'Invalid type for blur. Must be a number');
       }
     });
     
@@ -114,9 +146,19 @@ describe('img-cloud', function () {
         class: 'test-class',
         alt: 'test image',
         title: 'test-title',
-        style: 'width: 150px'
+        style: 'width: 150px',
+        crop: true,
+        x: 150,
+        y: 150,
+        scale: true,
+        borderColor: 'blue',
+        borderWidth: 1,
+        blur: 20,
+        sepia: true,
+        format: 'png'
       });
-      var expectedTag = '<img src="' + config.endPointBase + 'icp_ca3a83/w_150,h_150/1441279211081_test.jpg" \
+      var expectedTag = '<img src="' + config.endPointBase +
+        'icp_ca3a83/w_150,h_150,crop_true,x_150,y_150,scale_true,border_blue-1,blur_20/1441279211081_test.png" \
          width="150" \
          height="150" \
          class="test-class" \
