@@ -151,6 +151,7 @@ describe('img-cloud', function () {
         x: 150,
         y: 150,
         scale: true,
+        grayscale: true,
         borderColor: 'blue',
         borderWidth: 1,
         blur: 20,
@@ -158,7 +159,7 @@ describe('img-cloud', function () {
         format: 'png'
       });
       var expectedTag = '<img src="' + config.endPointBase +
-        'icp_ca3a83/w_150,h_150,crop_true,x_150,y_150,scale_true,border_blue-1,blur_20/1441279211081_test.png" \
+        'icp_ca3a83/w_150,h_150,crop_true,x_150,y_150,scale_true,grayscale_true,border_blue-1,blur_20,sepia_true/1441279211081_test.png" \
          width="150" \
          height="150" \
          class="test-class" \
