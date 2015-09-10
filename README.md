@@ -48,7 +48,7 @@ var imgCloud = require('img-cloud');
 imgCloud.configure({apiKey: <YOUR_API_KEY>});
 
 imgCloud.transform('ic_12345/1234567_my_img.jpg', {
-	width: 150, 
+  width: 150,
   height: 150,
   class: 'avatar',
   alt: 'My Image',
