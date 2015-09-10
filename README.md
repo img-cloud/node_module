@@ -58,6 +58,7 @@ imgCloud.transform('ic_12345/1234567_my_img.jpg', {
   x: 150,
   y: 150,
   scale: true,
+  grayscale: true,
   borderColor: 'blue',
   borderWidth: 1,
   blur: 20,
