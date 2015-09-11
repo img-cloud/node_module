@@ -103,23 +103,7 @@ describe('img-cloud', function () {
       try {
         imgCloud.transform('/path/to/file', {width: null});  
       } catch (e){
-        assert(e.toString(), 'Invalid type for widt. Must be a number');
-      }
-    });
-    
-    it('should fail if x is null', function (){
-      try {
-        imgCloud.transform('/path/to/file', {x: null});  
-      } catch (e){
-        assert(e.toString(), 'Invalid type for x. Must be a number');
-      }
-    });
-    
-    it('should fail if y is null', function (){
-      try {
-        imgCloud.transform('/path/to/file', {y: null});  
-      } catch (e){
-        assert(e.toString(), 'Invalid type for y. Must be a number');
+        assert(e.toString(), 'Invalid type for width. Must be a number');
       }
     });
     
@@ -148,8 +132,6 @@ describe('img-cloud', function () {
         title: 'test-title',
         style: 'width: 150px',
         crop: true,
-        x: 150,
-        y: 150,
         scale: true,
         grayscale: true,
         borderColor: 'blue',
@@ -159,7 +141,7 @@ describe('img-cloud', function () {
         format: 'png'
       });
       var expectedTag = '<img src="' + config.endPointBase +
-        'icp_ca3a83/w_150,h_150,crop_true,x_150,y_150,scale_true,grayscale_true,border_blue-1,blur_20,sepia_true/1441279211081_test.png" \
+        'icp_ca3a83/w_150,h_150,crop_true,scale_true,grayscale_true,bdr_blue-1,blur_20,sepia_true/1441279211081_test.png" \
          width="150" \
          height="150" \
          class="test-class" \
