@@ -55,15 +55,12 @@ imgCloud.transform('ic_12345/1234567_my_img.jpg', {
   title: 'My Image Title',
   style: 'width: 150px',
   crop: true,
-  x: 150,
-  y: 150,
   scale: true,
   grayscale: true,
   borderColor: 'blue',
   borderWidth: 1,
   blur: 20,
-  sepia: true,
-  format: 'png'
+  sepia: true
 });
 
 /**
