@@ -61,7 +61,7 @@ imgCloud.transform('ic_12345/1234567_my_img.jpg', {
   borderWidth: 1,
   blur: 20,
   sepia: true,
-  format: 'png
+  format: 'png'
 });
 
 /**
