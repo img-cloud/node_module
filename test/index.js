@@ -137,7 +137,8 @@ describe('img-cloud', function () {
         borderColor: 'blue',
         borderWidth: 1,
         blur: 20,
-        sepia: true
+        sepia: true,
+        format: 'png'
       });
       var expectedTag = '<img src="' + config.endPointBase +
         'icp_ca3a83/w_150,h_150,crop,scale,grayscale,bdr_1-blue,blur_20,sepia/1441279211081_test.png" \

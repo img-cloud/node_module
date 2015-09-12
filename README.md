@@ -60,7 +60,8 @@ imgCloud.transform('ic_12345/1234567_my_img.jpg', {
   borderColor: 'blue',
   borderWidth: 1,
   blur: 20,
-  sepia: true
+  sepia: true,
+  format: 'png
 });
 
 /**
