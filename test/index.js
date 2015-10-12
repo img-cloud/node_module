@@ -26,15 +26,15 @@ describe('img-cloud', function () {
   });
   
   describe('upload', function (){
-    it('should fail if input file path not specified', function () {
+    it('should fail if input file paths not specified', function () {
       imgCloud.upload('', {}, function (error){
-        assert(error, '"path" is required');
+        assert(error, '"paths" is required');
       });
     });
     
-    it('should fail if input file path is not a string', function () {
+    it('should fail if input file paths is not an array of strings', function () {
       imgCloud.upload({}, function (error){
-        assert(error, 'Invalid format for "path"');
+        assert(error, 'Invalid format for "paths"');
       });
     });
     
@@ -58,7 +58,7 @@ describe('img-cloud', function () {
       imgCloud.configure({
         apiKey: config.testApiKey
       });
-      imgCloud.upload('invalid/path/test.jpg', {}, function (error){
+      imgCloud.upload(['invalid/path/test.jpg'], {}, function (error){
         assert(error.code, 'ENOENT');
       });
     });
@@ -73,7 +73,7 @@ describe('img-cloud', function () {
         apiKey: config.testApiKey
       });
       
-      imgCloud.upload('test/fixtures/test.jpg', options, function (error, data){
+      imgCloud.upload(['test/fixtures/test.jpg'], options, function (error, data){
         var regEx = new RegExp(config.baseUrl + '/ic_.{6}/[0-9]*_test.jpg');
         assert(data.url.match(regEx) !== null, true);
         assert(data.folder, 'nodeModuleTest');
@@ -82,6 +82,31 @@ describe('img-cloud', function () {
     });
   });
   
+  describe('delete', function(){
+    it('should fail if api key is not set', function() {
+      imgCloud.delete('', function(error){
+        assert(error, 'API Key not set');
+      });
+    })
+
+    it('should fail if image does not exist', function() {
+      imgCloud.delete(config.endPointBase + '/invalid/path/test.jpg', function(error, data){
+        assert(data.message, 'Image not found in db.');
+      });
+    })
+
+    it('should be able to delete image if exists', function() {
+      imgCloud.configure({
+        apiKey: config.testApiKey
+      });
+      
+      imgCloud.upload(['test/fixtures/test.jpg'], {}, function (error, data){
+        imgCloud.delete(data.url, function(error, data){
+          assert(data.message, 'deleted');
+        });
+      });
+    })
+  });
   describe('transform', function (){
     it('should fail if path is not provided', function (){
       try {
