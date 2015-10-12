@@ -82,30 +82,30 @@ describe('img-cloud', function () {
     });
   });
   
-  describe('delete', function(){
-    it('should fail if api key is not set', function() {
-      imgCloud.delete('', function(error){
+  describe('delete', function (){
+    it('should fail if api key is not set', function () {
+      imgCloud.delete('', function (error){
         assert(error, 'API Key not set');
       });
-    })
+    });
 
-    it('should fail if image does not exist', function() {
-      imgCloud.delete(config.endPointBase + '/invalid/path/test.jpg', function(error, data){
+    it('should fail if image does not exist', function () {
+      imgCloud.delete(config.endPointBase + '/invalid/path/test.jpg', function (error, data){
         assert(data.message, 'Image not found in db.');
       });
-    })
+    });
 
-    it('should be able to delete image if exists', function() {
+    it('should be able to delete image if exists', function () {
       imgCloud.configure({
         apiKey: config.testApiKey
       });
       
       imgCloud.upload(['test/fixtures/test.jpg'], {}, function (error, data){
-        imgCloud.delete(data.url, function(error, data){
-          assert(data.message, 'deleted');
+        imgCloud.delete(data.url, function (err, dt){
+          assert(dt.message, 'deleted');
         });
       });
-    })
+    });
   });
   describe('transform', function (){
     it('should fail if path is not provided', function (){
