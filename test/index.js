@@ -101,9 +101,11 @@ describe('img-cloud', function () {
       });
       
       imgCloud.upload(['test/fixtures/test.jpg'], {}, function (error, data){
-        if(!error){
+        if (!error){
           imgCloud.delete(data.url, function (err, dt){
-            assert(dt.message, 'deleted');
+            if (!err){
+              assert(dt.message, 'deleted');
+            }
           });
         }
       });
