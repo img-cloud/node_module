@@ -1,6 +1,6 @@
 {
   "name": "img-cloud",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A node client to easily upload to and retrieve from img-cloud server",
   "homepage": "http://www.imgcloud.io/",
   "repository": "img-cloud/node_module",
